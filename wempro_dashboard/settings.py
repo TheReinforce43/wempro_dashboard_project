@@ -72,6 +72,7 @@ PROJECT_APPS=[
     'order_item',
     'location',
     'inventory',
+    'stock_update',
 ]
 
 

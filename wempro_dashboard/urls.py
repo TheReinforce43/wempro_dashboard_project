@@ -31,6 +31,8 @@ urlpatterns = [
     path('api/order/item/',include('order_item.urls')),
     path('api/location/',include('location.urls')),
     path('api/inventory/',include('inventory.urls')),
+    path('api/stock_update/',include('stock_update.urls')),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
