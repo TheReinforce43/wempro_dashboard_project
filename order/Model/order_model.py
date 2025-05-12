@@ -8,7 +8,7 @@ User = get_user_model()
 
 class OrderModel(models.Model):
 
-    user = models.OneToOneField(User,related_name='order_user',on_delete=models.CASCADE)
+    user = models.ForeignKey(User,related_name='order_user',on_delete=models.CASCADE)
     order_description= models.TextField(null=True,blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)

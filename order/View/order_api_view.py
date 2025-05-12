@@ -13,6 +13,7 @@ from order.custom_permission import OrderObjectPermission
 
 class OrderModelViewSet(ModelViewSet):
     queryset = OrderModel.objects.select_related('user')
+    permission_classes=[OrderObjectPermission]
 
 
     def  get_serializer_class(self):
@@ -33,17 +34,17 @@ class OrderModelViewSet(ModelViewSet):
 
         return queryset 
     
-    def get_permissions(self):
+    # def get_permissions(self):
 
-        if self.action in ['update', 'partial_update']: 
-            self.permission_classes = [OrderObjectPermission]
-        elif self.action in ['create',  'destroy']:
-            self.permission_classes = [IsAdminUser]
+    #     if self.action in ['update', 'partial_update']: 
+    #         self.permission_classes = [OrderObjectPermission]
+    #     elif self.action in ['create',  'destroy']:
+    #         self.permission_classes = [IsAdminUser]
       
-        else:
-            self.permission_classes = [IsAuthenticated]
+    #     else:
+    #         self.permission_classes = [IsAuthenticated]
 
-        return super().get_permissions()
+    #     return super().get_permissions()
      
     
 
