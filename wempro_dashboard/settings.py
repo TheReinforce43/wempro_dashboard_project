@@ -69,7 +69,9 @@ PROJECT_APPS=[
     'user_category',
     'product',
     'order',
-    'order_item'
+    'order_item',
+    'location',
+    'inventory',
 ]
 
 

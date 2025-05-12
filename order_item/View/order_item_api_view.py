@@ -26,11 +26,16 @@ class OrderItemModelViewSet(ModelViewSet):
         order_id = self.request.query_params.get('oder_id',None)
         product_id = self.request.query_params.get('product_id',None)
 
+        sales_date = self.request.query_params.get('sales_date',None)
+
         if order_id:
             queryset = queryset.filter(order__id = order_id)
 
         if product_id:
             queryset: queryset.filter(product__id= product_id)
+
+        if sales_date:
+            queryset= queryset.filter(created_at = sales_date)
 
         queryset = queryset.order_by('-created_at')
 
