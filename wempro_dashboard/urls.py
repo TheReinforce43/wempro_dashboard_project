@@ -28,6 +28,7 @@ urlpatterns = [
     path('api/user/category/',include('user_category.urls')),
     path('api/product/',include('product.urls')),
     path('api/order/',include('order.urls')),
+    path('api/order/item/',include('order_item.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
