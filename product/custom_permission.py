@@ -14,15 +14,15 @@ class ProductObjectPermission(BasePermission):
     def has_object_permission(self, request, view, obj):
         user = request.user 
 
-
-        if user.role in ['Admin','Seller']:
+        print(user.roles)
+        if user.roles in ['Admin','Seller']:
             return True
         
         # elif user.role == 'Seller':
         #    if request.method in ['GET', 'PUT', 'PATCH','HEAD','OPTIONS']:
         #         # Check if the product belongs to the user's category
         #         return user in  obj.product_category.category_seller.all()
-        elif user.role == 'Customer':
+        elif user.roles == 'Customer':
             if request.method in SAFE_METHODS:
                 return True
         else:  
