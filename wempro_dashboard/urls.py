@@ -24,6 +24,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('api/user/',include('User.urls')),
+    path('api/category/',include('category.urls')),
+    path('api/user/category/',include('user_category.urls')),
+    path('api/product/',include('product.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
