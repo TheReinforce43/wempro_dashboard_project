@@ -8,15 +8,12 @@ from user_category.Serializer.user_category_serializer import (
      GetUserCategorySerializer
 )
 
-
-
 class UserCategoryViewSet(ModelViewSet):
     """
     A viewset for viewing and editing user category instances.
     """
     queryset = UserCategoryModel.objects.select_related('category').prefetch_related('users')
     # permission_classes = [IsAuthenticated]
-    
 
     def get_serializer_class(self):
         if self.action in ['create', 'update', 'partial_update']:
@@ -32,6 +29,7 @@ class UserCategoryViewSet(ModelViewSet):
         user_id = self.request.query_params.get('user_id')
         category_id = self.request.query_params.get('category_id') 
         if user_id :
+            print("user_id",user_id)
             queryset = queryset.filter(users__id=user_id)
 
         if category_id:

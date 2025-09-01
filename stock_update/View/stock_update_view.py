@@ -16,7 +16,7 @@ class StockUpdateModeViewSet(ModelViewSet):
         'order',
         'location'
     )
-    permission_classes= [IsAuthenticated]
+    # permission_classes= [IsAuthenticated]
 
     def get_serializer_class(self):
         if self.action in ['create','update','partial_update','destroy']:
