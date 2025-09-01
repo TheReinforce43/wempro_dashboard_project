@@ -33,6 +33,7 @@ class UserCategoryViewSet(ModelViewSet):
             queryset = queryset.filter(users__id=user_id)
 
         if category_id:
+            print("category id ",category_id)   
             queryset = queryset.filter(category__id=category_id)
         return queryset
     
